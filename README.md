@@ -1,7 +1,7 @@
 # Todo List App 📝✅
 
 Bem-vindo ao Todo List App!
-Este é um aplicativo simples para gerenciar tarefas diárias.
+Um aplicativo simples para gerenciar tarefas diárias.
 
 ## Funcionalidades 🚀
 
@@ -14,22 +14,33 @@ Este é um aplicativo simples para gerenciar tarefas diárias.
 
 1. Clone o repositório:
 
-```git clone https://github.com/palomavmenezes/todo-list-harpio.git```
+```git clone https://github.com/palomavmenezes/todo-list.git```
 
 2. Inicie o App:
 
-```yarn dev```
+```yarn start```
 
 3. Acesse o aplicativo no seu navegador em ```http://localhost:3000```
 
+4. Rode o servidor
+
+```cd server```
+```yarn```
+```yarn start```
+
+
 ## Tecnologias utilizadas 🛠️
-React
-TypeScript
-Node.js (para o backend)
-SQLite (banco de dados)
+- React
+- TypeScript
+- Node.js (para o backend)
+- SQLite (banco de dados)
 
 ## Autor 📖
 Paloma Menezes
+
+[![GitHub](https://i.imgur.com/4jWlF9P.png)](https://github.com/palomavmenezes)
+[![LinkedIn](https://i.imgur.com/gInuPQT.png)](https://www.linkedin.com/in/palomamenezes)
+[![Instagram](https://i.imgur.com/Xw5d3Jh.png)](https://www.instagram.com/palomavmenezes)
 
 ## Licença 📜
 Este projeto está sob a licença MIT.
