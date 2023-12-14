@@ -38,9 +38,5 @@ Um aplicativo simples para gerenciar tarefas diárias.
 ## Autor 📖
 Paloma Menezes
 
-[![GitHub](https://i.imgur.com/4jWlF9P.png)](https://github.com/palomavmenezes)
-[![LinkedIn](https://i.imgur.com/gInuPQT.png)](https://www.linkedin.com/in/palomamenezes)
-[![Instagram](https://i.imgur.com/Xw5d3Jh.png)](https://www.instagram.com/palomavmenezes)
-
 ## Licença 📜
 Este projeto está sob a licença MIT.
