@@ -1,0 +1,27 @@
+/* src/App.css */
+body {
+  font-family: 'Arial', sans-serif;
+}
+
+form {
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+button {
+  margin-left: 5px;
+}
