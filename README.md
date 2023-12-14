@@ -20,12 +20,16 @@ Um aplicativo simples para gerenciar tarefas diárias.
 
 ```yarn start```
 
-3. Acesse o aplicativo no seu navegador em ```http://localhost:3000```
+3. Acesse o aplicativo no seu navegador em
+
+```http://localhost:3000```
 
 4. Rode o servidor
 
 ```cd server```
+
 ```yarn```
+
 ```yarn start```
 
 
