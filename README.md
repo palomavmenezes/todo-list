@@ -5,10 +5,11 @@ Um aplicativo simples para gerenciar tarefas diárias.
 
 ## Funcionalidades 🚀
 
+- Visualize as tarefas existentes ✔️
 - Adicione novas tarefas ✔️
 - Marque as tarefas como concluídas ✔️
 - Remova tarefas ✔️
-- Edite o título das tarefas ✔️
+- Edite tarefas ✔️
 
 ## Como usar 🤔
 
@@ -16,15 +17,19 @@ Um aplicativo simples para gerenciar tarefas diárias.
 
 ```git clone https://github.com/palomavmenezes/todo-list.git```
 
-2. Inicie o App:
+2. Instale as dependencias
 
-```yarn start```
+```yarn```
 
-3. Acesse o aplicativo no seu navegador em
+3. Inicie o App:
+
+```yarn dev```
+
+4. Acesse o aplicativo no seu navegador em
 
 ```http://localhost:3000```
 
-4. Rode o servidor
+5. Rode o servidor
 
 ```cd server```
 
@@ -36,6 +41,7 @@ Um aplicativo simples para gerenciar tarefas diárias.
 ## Tecnologias utilizadas 🛠️
 - React
 - TypeScript
+- Tailwind
 - Node.js (para o backend)
 - SQLite (banco de dados)
 
