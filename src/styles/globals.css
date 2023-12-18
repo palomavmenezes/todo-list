@@ -86,3 +86,9 @@ input[type="checkbox"]:checked {
   height: 40px;
   padding: 10px;
 }
+
+.icons-menu:hover {
+  background-color: rgb(237, 159, 255);
+  color: white;
+  transition: 0.3s;
+}
