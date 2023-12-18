@@ -80,3 +80,15 @@ input[type="checkbox"]:checked {
   background-color: #5c159b;
   transition: 0.3s;
 }
+
+.icons-menu {
+  background-color: rgb(248, 218, 255);
+  height: 40px;
+  padding: 10px;
+}
+
+.icons-menu:hover {
+  background-color: rgb(237, 159, 255);
+  color: white;
+  transition: 0.3s;
+}
