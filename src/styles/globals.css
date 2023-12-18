@@ -3,3 +3,80 @@
 @import 'tailwindcss/utilities';
 
 /* Adicione seus estilos personalizados abaixo */
+html,
+body {
+  background-color: rgb(248, 218, 255);
+  height: 100%;
+  margin: 0;
+}
+
+#root {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  /* ou a fonte desejada */
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f1f1f1;
+  /* ou a cor desejada para o rodapé */
+  text-align: center;
+}
+
+.todo-bg {
+  background-image: url(../image/backrground-todo-list.jpg);
+  opacity: 0.2;
+  height: 300px;
+  background-size: cover;
+  background-position-y: 380px;
+}
+
+.title-banner {
+  top: 6rem;
+  width: 100%;
+  text-align: center;
+}
+
+.menu {
+  top: 12rem;
+}
+
+input[type="text"] {
+  all: unset;
+  width: auto;
+  border: 1px solid #919191;
+  cursor: text;
+  padding: 5px;
+}
+
+input[type="checkbox"] {
+  all: unset;
+  border: 1px solid #5c159b;
+  width: 12px;
+  height: 12px;
+  display: inline-block;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #7e22ce;
+  width: 12px;
+  height: 12px;
+}
+
+.btn {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.btn:hover {
+  background-color: #5c159b;
+  transition: 0.3s;
+}

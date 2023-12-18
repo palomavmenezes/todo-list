@@ -9,7 +9,14 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        'sm': '640px',  // Small devices, como smartphones
+        'md': '768px',  // Dispositivos médios, como tablets
+        'lg': '1024px', // Dispositivos grandes, como laptops
+        'xl': '1280px', // Dispositivos extra grandes, como monitores de desktop
+      },
+    },
   },
   plugins: [],
 }
