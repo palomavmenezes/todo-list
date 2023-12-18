@@ -9,8 +9,6 @@ interface Todo {
 
 const Lista: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [editingTodoId, setEditingTodoId] = useState<number | null>(null);
-  const [editingTodoText, setEditingTodoText] = useState<string>('');
 
   useEffect(() => {
     fetch('http://localhost:5000/todos')
@@ -55,31 +53,15 @@ const Lista: React.FC = () => {
                   onChange={() => toggleCompletion(todo.id)}
                 />
               </label>
-              {editingTodoId === todo.id ? (
-                <>
-                  <input
-                    type="text"
-                    className='text-black-500 text-lg'
-                    value={editingTodoText}
-                    onChange={(e) => setEditingTodoText(e.target.value.slice(0, 30))}
-                    maxLength={30}
-                  />
-                </>
-              ) : (
-                <>
-                  <div>
-                    <span className={todo.completed ? 'completed px-2 text-gray-400 text-lg' : 'px-2 text-lg'}>
-                      {todo.text}
-                    </span>
-                    {/* Exibir dados de data e descrição */}
-                  </div>
-                </>
-              )}
+              <div>
+                <span className={todo.completed ? 'completed px-2 text-gray-400 text-lg' : 'px-2 text-lg'}>
+                  {todo.text}
+                </span>
+              </div>
             </li>
           ))}
         </ul>
       </div>
-
     </div>
   );
 };

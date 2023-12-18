@@ -52,7 +52,6 @@ const Form: React.FC = () => {
   };
 
   const updateTodo = (id: number, newText: string) => {
-    // Verifica se o novo texto não está vazio e possui no máximo 30 caracteres
     if (newText.trim() === '' || newText.length > 30) {
       alert('Erro ao atualizar todo: O texto não deve estar vazio e deve ter no máximo 30 caracteres.');
       return;
@@ -78,13 +77,11 @@ const Form: React.FC = () => {
       )
       .catch((error) => alert('Erro ao atualizar a tarefa:'));
 
-    // Limpa o estado de edição
     setEditingTodoId(null);
     setEditingTodoText('');
   };
 
   const cancelEditing = () => {
-    // Limpa o estado de edição
     setEditingTodoId(null);
     setEditingTodoText('');
   };
@@ -112,7 +109,6 @@ const Form: React.FC = () => {
   };
 
   const startEditingTodo = (id: number, text: string) => {
-    // Define o estado de edição com os valores iniciais
     setEditingTodoId(id);
     setEditingTodoText(text);
   };
@@ -121,11 +117,7 @@ const Form: React.FC = () => {
     <div>
       <div className='mx-auto flex flex-shrink-0 items-center justify-center bg-purple-200 -mt-5 p-5 rounded md:w-1/2 lg:w-1/2 xl:w-1/2 sm:w-10/12'>
         <div>
-          {/* Formulário para adicionar novas tarefas */}
-
-          <p className='w-full mt-5'>
-            Adicione abaixo o nome da Tarefa:
-          </p>
+          <p className='w-full mt-5'>Adicione abaixo o nome da Tarefa:</p>
 
           <form
             className='mb-5'
@@ -174,7 +166,6 @@ const Form: React.FC = () => {
                       <span className={todo.completed ? 'completed px-2 text-gray-400 text-lg' : 'px-2 text-lg'}>
                         {todo.text}
                       </span>
-                      {/* Exibir dados de data e descrição */}
                     </div>
                     <button className='text-purple-900 mr-2 text-xl -mt-1' onClick={() => startEditingTodo(todo.id, todo.text)}>
                       <FontAwesomeIcon className='text-xs' icon={faEdit} />
