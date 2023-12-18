@@ -9,7 +9,6 @@ interface Todo {
 
 const Lista: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [inputText, setInputText] = useState<string>('');
   const [editingTodoId, setEditingTodoId] = useState<number | null>(null);
   const [editingTodoText, setEditingTodoText] = useState<string>('');
 
@@ -17,48 +16,8 @@ const Lista: React.FC = () => {
     fetch('http://localhost:5000/todos')
       .then((response) => response.json())
       .then((data) => setTodos(data))
-      .catch((error) => console.error('Error fetching todos:', error));
+      .catch((error) => alert('Error fetching todos:'));
   }, []);
-
-  const addTodo = () => {
-    fetch('http://localhost:5000/todos', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ text: inputText, completed: false }),
-    })
-      .then((response) => response.json())
-      .then((data) => setTodos([...todos, { id: data.id, text: inputText, completed: false }]))
-      .catch((error) => console.error('Error adding todo:', error));
-
-    setInputText('');
-  };
-
-  const removeTodo = (id: number) => {
-    fetch(`http://localhost:5000/todos/${id}`, {
-      method: 'DELETE',
-    })
-      .then(() => setTodos(todos.filter((todo) => todo.id !== id)))
-      .catch((error) => console.error('Error removing todo:', error));
-  };
-
-  const updateTodo = (id: number, newText: string) => {
-    fetch(`http://localhost:5000/todos/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ text: newText, completed: todos.find((todo) => todo.id === id)?.completed }),
-    })
-      .then((response) => response.json())
-      .then(() => setTodos(todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo))))
-      .catch((error) => console.error('Error updating todo:', error));
-
-    // Limpa o estado de edição
-    setEditingTodoId(null);
-    setEditingTodoText('');
-  };
 
   const toggleCompletion = (id: number) => {
     const updatedTodos = todos.map((todo) =>
@@ -73,54 +32,54 @@ const Lista: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ text: todoToUpdate.text, completed: todoToUpdate.completed }),
+        body: JSON.stringify({
+          text: todoToUpdate.text,
+          completed: todoToUpdate.completed,
+        }),
       })
-        .catch((error) => console.error('Error toggling completion:', error));
+        .catch((error) => alert('Erro na conclusão da alternância:'));
     }
-  };
-
-  const startEditingTodo = (id: number, text: string) => {
-    // Define o estado de edição com os valores iniciais
-    setEditingTodoId(id);
-    setEditingTodoText(text);
   };
 
   return (
     <div>
-      <h1>Todo List</h1>
-
       {/* Lista de tarefas */}
-      <ul>
-        {todos.map((todo) => (
-          <li key={todo.id}>
-            <input
-              type="checkbox"
-              checked={todo.completed}
-              onChange={() => toggleCompletion(todo.id)}
-            />
-            {editingTodoId === todo.id ? (
-              <>
+      <div className='mx-auto flex flex-shrink-0 items-center justify-center bg-purple-200 -mt-5 p-5 rounded md:w-1/2 lg:w-1/2 xl:w-1/2 sm:w-10/12'>
+        <ul>
+          {todos.map((todo) => (
+            <li key={todo.id}>
+              <label className='check-customized'>
                 <input
-                  type="text"
-                  value={editingTodoText}
-                  onChange={(e) => setEditingTodoText(e.target.value)}
+                  type="checkbox"
+                  checked={todo.completed}
+                  onChange={() => toggleCompletion(todo.id)}
                 />
-                <button onClick={() => updateTodo(todo.id, editingTodoText)}>Salvar</button>
-              </>
-            ) : (
-              <>
-                <span className={todo.completed ? 'completed' : ''}>
-                  {todo.text}
-                </span>
-                <button onClick={() => removeTodo(todo.id)}>Remove</button>
-                <button onClick={() => startEditingTodo(todo.id, todo.text)}>
-                  Alterar
-                </button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
+              </label>
+              {editingTodoId === todo.id ? (
+                <>
+                  <input
+                    type="text"
+                    className='text-black-500 text-lg'
+                    value={editingTodoText}
+                    onChange={(e) => setEditingTodoText(e.target.value.slice(0, 30))}
+                    maxLength={30}
+                  />
+                </>
+              ) : (
+                <>
+                  <div>
+                    <span className={todo.completed ? 'completed px-2 text-gray-400 text-lg' : 'px-2 text-lg'}>
+                      {todo.text}
+                    </span>
+                    {/* Exibir dados de data e descrição */}
+                  </div>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+
     </div>
   );
 };
